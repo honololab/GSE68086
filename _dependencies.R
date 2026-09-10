@@ -6,6 +6,7 @@ library(GEOquery)       # functions/sample sheet creation.R
 library(BiocManager)
 
 library(DESeq2)         # GSE68086 DESeq2 / PCA pipeline
+library(edgeR)          # + exploratory DE pipeline (edgeR / DESeq2 side by side)
 library(limma)
 library(apeglm)
 library(ashr)

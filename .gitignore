@@ -11,3 +11,7 @@
 *.txt
 *.zip
 !subset/metadata.csv
+# Derived R objects -- regenerable by re-running the pipeline scripts
+data/derived/
+*.rds
+.gitignore
