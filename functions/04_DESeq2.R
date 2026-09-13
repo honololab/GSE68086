@@ -16,11 +16,11 @@ ss$lib_size <- colSums(counts)   # 03 only has it in-session, so recompute here
 dds <- DESeqDataSetFromMatrix(countData = counts, colData = ss, design = ~ batch + group)
 
 # filter genes
-# keep genes with >= 10 reads in at least 38 samples (38 = size of the smallest group)
-keep_g <- rowSums(counts(dds) >= 10) >= 38 # a gene survives if it is reasonably expressed in at least one whole group's worth of samples. 57,736 → 6,109
+# keep genes with enough counts (CPM scale, group-aware) -- edgeR::filterByExpr
+keep_g <- filterByExpr(counts(dds), group = dds$group)
 print(table(keep_g))
 dds <- dds[keep_g, ]
-print(nrow(dds))         # 6,109 genes
+print(nrow(dds))      # 6,994
 
 ## 5. Normalization
 dds <- estimateSizeFactors(dds) # library size factor 
@@ -37,3 +37,11 @@ par(mfrow = c(1, 1))
 
 # export data
 saveRDS(dds, "data/derived/dds_filtered.rds")
+
+## 6. Variance-stabilizing transform (needed for PCA and heatmaps)
+vsd <- vst(dds, blind = TRUE)     # blind = does not use the design; good for exploration
+head(assay(vsd)[, 1:4])
+
+# saveRDS(vsd, "data/derived/vsd_blind.rds")
+
+dds
