@@ -2,7 +2,7 @@
 # packages used in the .md pipeline docs -- renv does not scan plain .md.
 # Add a library() line here whenever you start using a new package.
 
-library(GEOquery)       # functions/sample sheet creation.R
+library(GEOquery)       # functions/01_sample sheet creation.R
 library(BiocManager)
 
 library(DESeq2)         # GSE68086 DESeq2 / PCA pipeline
