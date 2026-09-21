@@ -45,15 +45,29 @@ dds <- DESeqDataSetFromMatrix(countData = counts,
 # which is what prevents the labels from detaching from the columns.
 # "for every gene, explain its counts by which batch the sample was in and which group it belongs to."
 
-# dds <- DESeq(dds)
-# resultsNames(dds) # coefficient names:
+dds <- DESeq(dds)
+resultsNames(dds) # coefficient names: son mis betas.
 #     # [1] "Intercept" ---- "batch_Batch03_vs_Batch02" "batch_Batch04_vs_Batch02" "group_GBM_vs_HC" "group_Lung_vs_HC"
 
-# res <- results(dds)
+res <- results(dds, contrast = c("group", "Lung", "GBM")) # tabla de contraste
+res
 
-# summary(res)
+# ----- 1.2 p-values and adjusted p-values
 
-# --- 2. remove genes with too few reads to test (pre-filtering)
+resOrdered <- res[order(res$pvalue),] # We can order our results table by the smallest p value:
+resOrdered
+
+summary(res) # We can summarize some basic tallies
+
+sum(res$padj < 0.1, na.rm=TRUE) # How many adjusted p-values were less than 0.1?
+    # 3219
+sum(res$padj < 0.05, na.rm=TRUE)
+    # 2563
+
+res05 <- results(dds, alpha=0.05)
+summary(res05)
+
+# --- 2. remove genes with too few reads to test (without pre-filtering)
 
 # filterByExpr keeps a gene if it reaches a cutoff in enough samples. The cutoff is
 # in CPM (about 10 reads in the median library, ~5.9 CPM here), so a shallow HC
@@ -93,7 +107,7 @@ sf <- sizeFactors(dds)
 cat("\nsize factors, median by group:\n")
 print(round(tapply(sf, ss$group, median), 3))
 
-# --- 4. vst: a log-like scale for plots
+# ---- 4. vst: a log-like scale for plots
 
 # Raw counts spread more the higher a gene's mean, so a PCA on them would be a PCA of
 # the few most abundant genes. vst() removes that dependence and applies the size
@@ -109,9 +123,12 @@ saveRDS(vsd, OUT_VSD)
 cat(sprintf("\nwritten %s (%d genes x %d samples) and %s\n",
             OUT_DDS, nrow(dds), ncol(dds), OUT_VSD))
 
-# --- 6. filter summary 
+# ---- 6. filter summary 
 
 cat("\n=== resumen de filtros ===\n")
 cat(sprintf("muestras: 285 en GEO -> %d en el subconjunto Lung/GBM/HC, Batch02-04\n", ncol(counts)))
 cat(sprintf("genes:    %d en la matriz -> %d con alguna lectura -> %d tras filterByExpr\n",
             nrow(counts), n_any, sum(keep_g)))
+
+# ---- 7. plots
+plotMA(res, ylim=c(-2,2))
