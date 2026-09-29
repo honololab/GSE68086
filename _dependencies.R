@@ -8,8 +8,8 @@ library(BiocManager)
 library(DESeq2)         # GSE68086 DESeq2 / PCA pipeline
 library(edgeR)          # + exploratory DE pipeline (edgeR / DESeq2 side by side)
 library(limma)
-library(apeglm)
-library(ashr)
+library(apeglm)         # functions/06_DE_tests.R -- lfcShrink, named coefficients
+library(ashr)           # functions/06_DE_tests.R -- lfcShrink, Lung vs GBM contrast
 
 library(AnnotationDbi)  # annotation
 library(org.Hs.eg.db)

@@ -1,7 +1,7 @@
 library(DESeq2)
 # library(ggplot2)
 library(edgeR)
-
+??filterByExpr
 # 04 -- Build the DESeq2 object, remove low-count genes, normalise, save
 #
 # Takes the 133-sample subset that 02 saved and prepares it for everything that follows.
@@ -13,7 +13,7 @@ library(edgeR)
 # Then the two objects are saved: 05 reads them for the PCA, 06 for the DE tests.
 # No differential-expression test runs here.
 
-IN      <- "data/derived/subset_lung_gbm_hc.rds"     # written by 02
+IN      <- "data/derived/dds_filtered.rds"     # written by 02
 OUT_DDS <- "data/derived/dds_filtered.rds"           # 06 starts from this
 OUT_VSD <- "data/derived/vsd_blind.rds"              # 05 starts from this
 

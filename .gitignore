@@ -15,6 +15,9 @@
 data/derived/
 *.rds
 .gitignore
+*.md
 Claude outputs
 figures
 subset
+*.pdf
+

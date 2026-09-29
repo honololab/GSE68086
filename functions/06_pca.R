@@ -23,7 +23,7 @@ ss  <- as.data.frame(colData(dds))           # sample sheet: group, batch, ...
 GROUP_COL <- c(HC = "#e79897", GBM = "#b7cbdb", Lung = "#fcc88a")
 # Batch colours are deliberately NOT the group colours, so the two legends are never
 # mistaken for each other.
-BATCH_COL <- c(Batch02 = "#7b8fa6", Batch03 = "#a88bb5", Batch04 = "#8fae8b")
+BATCH_COL <- c(Batch02 = "red", Batch03 = "#a88bb5", Batch04 = "#8fae8b")
 INK  <- "#0b0b0b"
 INK2 <- "#52514e"
 SURF <- "#ffffff"

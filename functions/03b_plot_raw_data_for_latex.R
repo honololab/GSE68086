@@ -20,7 +20,7 @@
 #
 # Run from the project root, like 03:  Rscript "functions/03b_plot raw data for latex.R"
 
-source(file.path("functions", "03_plot raw data.R"))
+source(file.path("functions", "03_plot_raw_data.R"))
 
 TEXDIR <- "data/derived/figures_latex"
 dir.create(TEXDIR, recursive = TRUE, showWarnings = FALSE)
