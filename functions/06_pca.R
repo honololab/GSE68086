@@ -3,8 +3,8 @@
 library(DESeq2)
 library(ggplot2)
 
-IN_DDS <- "data/derived/dds_filtered.rds" # written by 04
-IN_VSD <- "data/derived/vsd_blind.rds" # written by 04
+IN_DDS <- "data/derived/dds_filtered.rds" # written by 05
+IN_VSD <- "data/derived/vsd_blind.rds" # written by 05
 FIGDIR <- "data/derived/figures"
 TEXDIR <- "data/derived/figures_latex"
 FIGW   <- 7.6
