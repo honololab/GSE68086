@@ -1,4 +1,4 @@
-_# 06 -- Differential expression: fit the model, extract the contrasts, shrink, save
+# 07 -- Differential expression: fit the model, extract the contrasts, shrink, save
 #
 # Reads the filtered, normalised object 04 saved (6,994 genes x 133 samples, design
 # ~ batch + group) and does the inference. Steps, in this order:
@@ -10,7 +10,7 @@ _# 06 -- Differential expression: fit the model, extract the contrasts, shrink, 
 #   6. tables to disk     one CSV per contrast, ordered by padj
 #   7. MA plots           one per contrast, raw vs shrunken side by side
 #
-# Run from the project root:  Rscript "functions/06_DE_tests.R"
+# Run from the project root:  Rscript "functions/07_DE_tests.R"
 
 library(DESeq2)
 library(apeglm)      # shrinkage method for named coefficients
@@ -127,4 +127,4 @@ for (k in names(res)) {
 }
 cat(sprintf("\nMA plots written to %s\n", FIGDIR))
 
-saveRDS(dds, "data/derived/dds_fitted.rds")   # the fitted object, in case 07 needs it
+saveRDS(dds, "data/derived/dds_fitted.rds")   # the fitted object, in case a later script needs it

@@ -1,4 +1,4 @@
-# 04 -- Batch x condition: test of independence
+# 06 -- Batch x condition: test of independence
 # Three tests on the same contingency table (rows = batch, columns = condition):
 #   1. Pearson chi-square   2. G-test (likelihood ratio)   3. Fisher's exact
 # Each test uses ALL the selected batches at once.
@@ -9,7 +9,7 @@
 #   B. CONDITIONS      x all batches      effect of choosing groups only
 #   C. CONDITIONS      x BATCHES          the analysis subset (same choice as in 02)
 #
-# Run from the project root:  Rscript "functions/04_batch_independency_tests.R"
+# Run from the project root:  Rscript "functions/06_batch_independency_tests.R"
 
 # ================== CHOICES -- edit here ==================
 CONDITIONS <- c("Lung", "GBM", "HC")               # NULL = all conditions

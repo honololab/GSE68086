@@ -60,7 +60,7 @@ counts <- counts[, rownames(ss), drop = FALSE]
 # behind. HC goes first because R treats the first level as the baseline, which is what
 # makes every group coefficient in 04 read "<group> vs HC".
 # sort() fixes the order of the other two (HC, GBM, Lung -- same order relevel() gave).
-# That order matters: results(dds) with no arguments in 04 returns the LAST group
+# That order matters: results(dds) with no arguments in 07 returns the LAST group
 # coefficient, so this line is what makes Lung vs HC the default result there.
 ss$group <- factor(ss$group, levels = c(REF, sort(setdiff(GROUPS, REF))))
 ss$batch <- factor(ss$batch, levels = BATCHES)

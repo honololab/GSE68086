@@ -1,4 +1,4 @@
-# 05c -- filterByExpr + TMM, and figures 1a, 1b, 1c and 2a of Robinson & Oshlack (2010)
+# 04c -- filterByExpr + TMM, and figures 1a, 1b, 1c and 2a of Robinson & Oshlack (2010)
 #
 # Robinson MD, Oshlack A. A scaling normalization method for differential expression
 # analysis of RNA-seq data. Genome Biology 2010, 11:R25.
@@ -23,7 +23,7 @@
 #   - Housekeeping genes: Eisenberg & Levanon (2013) list (3,804 genes), the update of the
 #     2003 list the paper used (545 genes).
 #
-# Run from the project root, like the other scripts:  Rscript functions/05c_tmm_figures.R
+# Run from the project root, like the other scripts:  Rscript functions/04c_tmm_figures.R
 # Reads the subset only. Writes PNGs to data/derived/figures_tmm (and caches the
 # housekeeping list in data/derived/HK_genes.txt).
 

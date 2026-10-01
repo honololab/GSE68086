@@ -1,4 +1,4 @@
-# 04b -- One batch at a time: do the conditions differ inside the same batch?
+# 06b -- One batch at a time: do the conditions differ inside the same batch?
 #
 # Section 2.3 of the report ("Estrategia: un lote a la vez").
 #
@@ -27,7 +27,7 @@
 # there is a real difference, so look at the medians and the order, not only at p.
 #
 # Base R only. Needs the .rds written by 02.
-# Run from the project root:  Rscript "functions/04b_within_batch_tests.R"
+# Run from the project root:  Rscript "functions/06b_bivariate_batch_tests.R"
 
 # ================== CHOICES -- edit here ==================
 IN        <- "data/derived/subset_lung_gbm_hc.rds"   # written by 02
@@ -36,7 +36,7 @@ FEATURES  <- c("lib_size", "zero_share")  # sample features to test (built in st
 P_ADJUST  <- "holm"                     # multiple-testing correction, see ?p.adjust
 ALPHA     <- 0.05                       # only used to mark rows with "*"
 SAVE      <- TRUE                       # write the table as .csv
-OUTDIR    <- "data/derived/04b_within_batch"
+OUTDIR    <- "data/derived/06b_bivariate_batch_test"
 
 # ---- 0. load ------------------------------------------------------------------
 # d$counts: genes (rows) x samples (columns). d$ss: one row per sample, in the same

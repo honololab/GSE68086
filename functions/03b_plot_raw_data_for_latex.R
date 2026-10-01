@@ -18,7 +18,7 @@
 # list called FIGURES as it goes, so there is no second copy of the nine plots here to
 # fall out of step with the first. Add a plot to 03 and it appears here on its own.
 #
-# Run from the project root, like 03:  Rscript "functions/03b_plot raw data for latex.R"
+# Run from the project root, like 03:  Rscript "functions/03b_plot_raw_data_for_latex.R"
 
 source(file.path("functions", "03_plot_raw_data.R"))
 
