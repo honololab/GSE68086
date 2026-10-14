@@ -18,4 +18,6 @@ library(ggplot2)        # plotting
 library(ggrepel)
 library(pheatmap)
 
+library(tidyverse)      # data handling (dplyr, tidyr, readr, purrr, ...)
+
 library(glmnet)          # lasso / elastic net
